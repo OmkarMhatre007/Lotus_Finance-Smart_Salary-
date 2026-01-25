@@ -19,7 +19,7 @@ Lotus Finance helps users master their personal finances through a "challenge" f
 [Insert your best app screenshots here!]
 
 ## 🏗️ Installation
-1. Clone the repo: `git clone [your-link]`
+1. Clone the repo: `git clone [https://github.com/mohit-malpote/Lotus_Finance-Smart_Salary-]`
 2. Install dependencies: `flutter pub get`
 3. Add your `google-services.json` to `android/app/`
 4. Run: `flutter run`
