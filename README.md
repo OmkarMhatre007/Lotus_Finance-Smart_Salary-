@@ -1,16 +1,25 @@
-# lotus_finance_app
+# Lotus Finance 🪷
+**A Gamified 30-Day Financial Habit Tracker**
 
-A new Flutter project.
+## 🚀 The Mission
+Lotus Finance helps users master their personal finances through a "challenge" format. By combining real-time leaderboards with AI-driven progress analysis, we turn boring budgeting into a competitive game.
 
-## Getting Started
+## ✨ Features
+- **Smart Survey**: Tailored financial goal setting based on user salary and expenses.
+- **Daily Task Gamification**: Earn EXP and rank up from "Rookie" to "Absolute Genius."
+- - **Real-time Global Leaderboard**: Powered by Firebase Firestore to rank users by EXP.
+- **Secure Authentication**: Firebase Auth integration for personal progress tracking.
 
-This project is a starting point for a Flutter application.
+## 🛠️ Tech Stack
+- **Frontend**: Flutter (Dart)
+- **Backend**: Firebase (Auth & Firestore)
+- **AI**: Google Gemini Pro (for monthly progress reports)
 
-A few resources to get you started if this is your first Flutter project:
+## 📸 Screenshots
+[Insert your best app screenshots here!]
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🏗️ Installation
+1. Clone the repo: `git clone [your-link]`
+2. Install dependencies: `flutter pub get`
+3. Add your `google-services.json` to `android/app/`
+4. Run: `flutter run`
