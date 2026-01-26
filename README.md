@@ -1,9 +1,9 @@
 <<<<<<< HEAD
-# Lotus Finance 🪷
+# Formula Money 💸
 **A Gamified Financial Habit Macker**
 
 ## 🚀 The Mission
-Lotus Finance helps users master their personal finances through a "challenge" format. By combining real-time leaderboards with AI-driven progress analysis, we turn boring budgeting into a competitive game.
+Formula Money helps users master their personal finances through a "challenge" format. By combining real-time leaderboards with AI-driven progress analysis, we turn boring budgeting into a competitive game.
 
 ## ✨ Features
 - **Smart Survey**: Tailored financial goal setting based on user salary and expenses.
@@ -44,14 +44,14 @@ Lotus Finance helps users master their personal finances through a "challenge" f
    2.Go to the Releases page:
      👉 Open Releases
    3.Under Assets, download the latest APK file:
-     Lotus_Finance_v1.0_Demo.apk
+     Formula-Money.apk
    4.Open the downloaded APK on your Android phone and give permission.
    5.Install the app and launch Formula_Money(Smart Salary).
 2. Install dependencies: `flutter pub get`
 3. Add your `google-services.json` to `android/app/`
 4. Run: `flutter run`
 =======
-# lotus_finance_app
+# Formula_Money_app
 
 A new Flutter project.
 
