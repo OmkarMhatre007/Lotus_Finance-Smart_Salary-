@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 # Lotus Finance 🪷
-**A Gamified 30-Day Financial Habit Tracker**
+**A Gamified Financial Habit Macker**
 
 ## 🚀 The Mission
 Lotus Finance helps users master their personal finances through a "challenge" format. By combining real-time leaderboards with AI-driven progress analysis, we turn boring budgeting into a competitive game.
