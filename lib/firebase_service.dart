@@ -54,5 +54,14 @@ Stream<List<Map<String, dynamic>>> getLeaderboardStream() {
           .map((doc) => doc.data() as Map<String, dynamic>)
           .toList());
 }
+ Future<void> updateUserExp(int newExp) async {
+  String uid = _auth.currentUser!.uid; // Get current user's ID
+  await _db.collection('users').doc(uid).update({
+    'totalExp': newExp,
+    // Automatically level up every 100 EXP
+    'level': (newExp / 100).floor() + 1, 
+    'rank': newExp > 500 ? 'Professional' : 'Rookie',
+  });
+}
 }
 

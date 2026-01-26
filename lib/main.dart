@@ -3,8 +3,10 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'auth_screen.dart';
 import 'firebase_service.dart';
+const String globalApiKey = const String.fromEnvironment('API_KEY');
 
 void main() async {
+  print("DEBUG API KEY: ${const String.fromEnvironment('API_KEY')}");
   // 1. Tell Flutter to wait for the engine to boot
   WidgetsFlutterBinding.ensureInitialized();
   
@@ -64,7 +66,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
     try {
       final model = GenerativeModel(
         model: 'gemini-2.0-flash',
-        apiKey: 'AIzaSyCBQ64ykqJlgCMO8t7mDgPk61aIqlaAZm4',
+        apiKey: globalApiKey,
       );
 
       final prompt = """
@@ -98,7 +100,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
     
     final model = GenerativeModel(
       model: 'gemini-2.0-flash',
-      apiKey: 'AIzaSyCBQ64ykqJlgCMO8t7mDgPk61aIqlaAZm4',
+      apiKey: globalApiKey,
     );
 
     final prompt = """
@@ -295,12 +297,24 @@ class _HomePageState extends State<HomePage> {
     return "Rookie";
   }
 
+  void _updateExp(int index, bool? value) async {
+    setState(() {
+      _goalCompletion[index] = value ?? false;
+      int points = (index == _currentGoalTexts.length - 1) ? 50 : 10;
+      _exp += (value == true) ? points : -points;
+    });
+
+    // 🚀 Syncing with the cloud leaderboard
+    await FirebaseService().updateUserExp(_exp); 
+    widget.onExpChanged(_exp); 
+  }
+
   Future<void> _refreshDailyGoals() async {
     setState(() => _isAIThinking = true);
     
     final model = GenerativeModel(
       model: 'gemini-2.0-flash',
-      apiKey: 'AIzaSyCBQ64ykqJlgCMO8t7mDgPk61aIqlaAZm4',
+      apiKey: globalApiKey,
     );
 
     final prompt = """
@@ -335,16 +349,6 @@ class _HomePageState extends State<HomePage> {
       }
     });
     _refreshDailyGoals(); 
-  }
-
-  void _updateExp(int index, bool? value) {
-    setState(() {
-      _goalCompletion[index] = value ?? false;
-      // Safety: The last item is always the high-value Guilty Pleasure
-      int points = (index == _currentGoalTexts.length - 1) ? 50 : 10;
-      _exp += (value == true) ? points : -points;
-    });
-    widget.onExpChanged(_exp); 
   }
 
   @override
@@ -473,7 +477,7 @@ class _AiBotTabState extends State<AiBotTab> {
 
     final model = GenerativeModel(
       model: 'gemini-2.0-flash',
-      apiKey: 'AIzaSyCBQ64ykqJlgCMO8t7mDgPk61aIqlaAZm4',
+      apiKey: globalApiKey,
     );
 
     // Context-heavy prompt to ensure the AI remembers the user's specific details
