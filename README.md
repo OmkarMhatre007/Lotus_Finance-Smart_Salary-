@@ -17,10 +17,36 @@ Lotus Finance helps users master their personal finances through a "challenge" f
 - **AI**: Google Gemini Pro (for monthly progress reports)
 
 ## 📸 Screenshots
-[Insert your best app screenshots here!]
+| Survey | Survey | Goal Confirmation |
+|--------|-----------|-----------|
+| ![Survey Screen](screenshots/survey_page1.jpeg) | ![Survey Screen](screenshots/survey_page2.jpeg) | 
+![Goal Confirmation](screenshots/goal_confirmation.jpeg) |
+
+| Suggest New Goal | New Goal Approved |
+|------|--------------|
+| ![Suggest Goal](screenshots/suggest_new_goal.jpeg) | ![New Goal Approved](screenshots/new_goal_approved.jpeg) |
+
+| Smart_Salary Dashboard 1 | Smart_Salary Dashboard 2 | Smart_Salary Dashboard 3 |
+|--------|-----------|-----------|
+| ![Dashboard 1](screenshots/smart_salary_dashboard1.jpeg) | ![Dashboard 2](screenshots/smart_salary_dashboard2.jpeg) | 
+![Dashboard 3](screenshots/smart_salary_dashboard3.jpeg) |
+
+| AI Bot | Global Leaderboard |
+|------|--------------|
+| ![AI Bot](screenshots/AI_bot.jpeg) | ![Global leaderboard](screenshots/global_leaderboard.jpeg) |
 
 ## 🏗️ Installation
 1. Clone the repo: `git clone [https://github.com/mohit-malpote/Lotus_Finance-Smart_Salary-]`
+   OR
+   *Download App:*[Vist here to download the app](https://github.com/mohit-malpote/Formula_Money-Fintech/releases)
+   [How to Download app in Android devices:]
+   1.Open the link in your andrid device.
+   2.Go to the Releases page:
+     👉 Open Releases
+   3.Under Assets, download the latest APK file:
+     Lotus_Finance_v1.0_Demo.apk
+   4.Open the downloaded APK on your Android phone and give permission.
+   5.Install the app and launch Formula_Money(Smart Salary).
 2. Install dependencies: `flutter pub get`
 3. Add your `google-services.json` to `android/app/`
 4. Run: `flutter run`
