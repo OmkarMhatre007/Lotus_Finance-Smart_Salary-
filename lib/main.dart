@@ -3,6 +3,7 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'auth_screen.dart';
 import 'firebase_service.dart';
+import 'dart:convert';
 const String globalApiKey = const String.fromEnvironment('API_KEY');
 
 void main() async {
@@ -42,7 +43,7 @@ class SmartSalaryApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.deepPurple, useMaterial3: true),
+      theme: ThemeData(primarySwatch: Colors.red, useMaterial3: true),
       home: const SurveyScreen(),
     );
   }
@@ -201,7 +202,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("SmartSalary Survey")),
+      appBar: AppBar(title: const Text("Smart Survey")),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -240,7 +241,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
   Widget _buildSectionTitle(String title) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Align(alignment: Alignment.centerLeft, child: Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.deepPurple))),
+      child: Align(alignment: Alignment.centerLeft, child: Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red))),
     );
   }
 
@@ -356,18 +357,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Text("Day $_currentDay of 30"), 
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: _isAIThinking 
-                ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2))
-                : const Icon(Icons.wb_sunny_outlined), 
-            onPressed: _isAIThinking ? null : _nextDay, 
-            tooltip: "Start Next Day",
-          )
-        ],
-      ),
+         backgroundColor: Colors.grey[1000],
+         title: const Text("Formula Money"),
+       actions: [
+           TextButton(
+             onPressed: () {
+        // Add your logic here to show the change GP goal dialog
+          },
+      child: const Text("Edit GP", style: TextStyle(color: Colors.white)),
+       ),
+     ],
+   ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -377,7 +377,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: Colors.red,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
@@ -420,21 +420,25 @@ class _HomePageState extends State<HomePage> {
                   title: Text(_currentGoalTexts[index]),
                   subtitle: Text(isGuilty ? "Monthly Challenge - 50 EXP" : "Daily Goal - 10 EXP"),
                   value: _goalCompletion[index],
-                  activeColor: Colors.deepPurple,
+                  activeColor: Colors.red,
                   onChanged: (val) => _updateExp(index, val),
                 ),
               );
             }),
             
             const SizedBox(height: 25),
-            Center(
-              child: TextButton.icon(
-                onPressed: () {
-                  // Re-use logic for changing GP goal
-                },
-                icon: const Icon(Icons.edit_note),
-                label: const Text("Change Guilty Pleasure Goal"),
-              ),
+            SizedBox(
+               width: double.infinity,
+               child: ElevatedButton.icon(
+                 onPressed: _nextDay, // Uses the existing function from your screenshot
+                 icon: const Icon(Icons.arrow_forward),
+                 label: const Text("Next Day"),
+                 style: ElevatedButton.styleFrom(
+                   backgroundColor: Colors.red, // Matching your new theme
+                   foregroundColor: Colors.white,
+                   padding: const EdgeInsets.symmetric(vertical: 15),
+                  ),
+                ),
             ),
           ],
         ),
@@ -529,7 +533,7 @@ class _AiBotTabState extends State<AiBotTab> {
                     margin: const EdgeInsets.symmetric(vertical: 5),
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: isUser ? Colors.deepPurple : Colors.grey[200],
+                      color: isUser ? Colors.red : Colors.grey[200],
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Text(
@@ -632,7 +636,7 @@ class LeaderboardTab extends StatelessWidget {
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
-                color: Colors.deepPurple,
+                color: Colors.red,
                 child: Column(
                   children: [
                     Text("You are in the top ${(100 - percentile).toStringAsFixed(1)}% of users!", 
@@ -739,7 +743,7 @@ class _MainNavigationContainerState extends State<MainNavigationContainer> {
       appBar: AppBar(
         title: const Text("SmartSalary"),
         centerTitle: true,
-        backgroundColor: Colors.deepPurple[50],
+        backgroundColor: Colors.red[50],
       ),
       // NEW: Added the Drawer (Side Menu)
       drawer: Drawer(
@@ -747,7 +751,7 @@ class _MainNavigationContainerState extends State<MainNavigationContainer> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              decoration: const BoxDecoration(color: Colors.deepPurple),
+              decoration: const BoxDecoration(color: Colors.red),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -780,7 +784,7 @@ class _MainNavigationContainerState extends State<MainNavigationContainer> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor: Colors.red,
         onTap: (index) => setState(() => _selectedIndex = index),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
